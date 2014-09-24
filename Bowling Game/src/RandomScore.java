@@ -4,7 +4,7 @@ public class RandomScore
 	 public static int generateNumber(int maxThrow)
 	 {
 		 Random rand = new Random();
-		 int num = rand.nextInt(maxThrow) + 0;
+		 int num = rand.nextInt(maxThrow) + 1;
 		 return num; 
 		
 	 }
