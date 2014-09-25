@@ -1,30 +1,59 @@
-
 public class Scoring {
 
-	
-	public static int getScore(int playerNum, int frame)
+	static int[][] scoreSheet = new int[5][11];
+	static int turn = 1;
+
+	public static void calcScore(int playerNum, int[][]rolls) 
 	{
-		int score = 0;
+		int frame = 1;
+		int totalScore = 0;
 		
-		return score;
-	}
-	
-	public static int calcScore(int firstThrow, int secondThrow, int frame)
-	{
-		int score = 0;
-	//calc score for Strike
-	
-	//calc score for spare
-	
-	//calc score all other throws
+		System.out.println();
+		System.out.println("Calculating Scores for Bowler: "+ playerNum);
 		
-	return score;
+		for(int i = 1; i < 21; i++)
+		{
+			if((rolls[playerNum][i] == 10) && (i%2 != 0))
+			{
+				// calculate score for 2 or 3 Strikes
+				if (rolls[playerNum][i+2] == 10)
+				{
+					scoreSheet[playerNum][frame] = rolls[playerNum][i] + rolls[playerNum][i+2] + rolls[playerNum][i+4];
+					i++;
+				} else if (i == 19)  // in tenth frame
+				{
+					scoreSheet[playerNum][frame] = rolls[playerNum][i] + rolls[playerNum][i+1] + rolls[playerNum][i+2];
+				    i=i+2;
+				} else
+				{
+				  scoreSheet[playerNum][frame] = rolls[playerNum][i] + rolls[playerNum][i+2] + rolls[playerNum][i+3];
+				  i++;
+				}
+			} else if((rolls[playerNum][i] + rolls[playerNum][i+1]) == 10)
+			{
+				// calculate score for spare
+				scoreSheet[playerNum][frame] = rolls[playerNum][i] + rolls[playerNum][i+1] + rolls[playerNum][i+2];
+				i++;
+			} else
+			{
+				// calculate score all other throws
+				scoreSheet[playerNum][frame] = rolls[playerNum][i] + rolls[playerNum][i+1];
+				i++;
+			}
+		
+			totalScore = totalScore + scoreSheet[playerNum][frame];
+			
+			System.out.print("Score in Frame ");
+			System.out.printf("%2d", frame);
+			System.out.print(": ");
+			System.out.printf("%3d", totalScore);
+			System.out.println();
+			
+		    frame++;
+		}
+		System.out.println();
+		System.out.println("The total score for player " +playerNum +" is " + totalScore + ".");
+		System.out.println();
 	}
-	
-	public static int [][] storeScore(int [][] scoreArray, int playerNum)
-	{
-		return scoreArray;
-	}
-	
-	
+
 }

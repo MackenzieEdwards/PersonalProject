@@ -6,11 +6,5 @@ public class RandomScore
 		 Random rand = new Random();
 		 int num = rand.nextInt(maxThrow) + 1;
 		 return num; 
-		
 	 }
-	
-	
-	
-	
-	
 }
