@@ -1,3 +1,4 @@
+//Class 1 Mackenzie Edwards
 import java.util.Scanner;
 import java.util.ArrayList;
 

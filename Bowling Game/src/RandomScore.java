@@ -1,3 +1,4 @@
+//Class 2 Mackenzie Edwards
 import java.util.Random;
 public class RandomScore 
 {

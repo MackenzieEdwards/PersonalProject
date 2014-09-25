@@ -1,3 +1,4 @@
+//Class 3 Mackenzie Edwards
 public class Scoring {
 
 	static int[][] scoreSheet = new int[5][11];
